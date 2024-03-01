@@ -2,6 +2,7 @@
 // fiquei perdido no nome dos parametros>>>>
 
 let numeroSecreto = gerarNumeroAleatorio(); // aqui fica o returno da função ..
+let tentativas = 1;
 
 function trocaTexto(elementosHtml, FrasesEcolhidas) {
     let variavel = document.querySelector(elementosHtml);
@@ -11,26 +12,26 @@ function trocaTexto(elementosHtml, FrasesEcolhidas) {
 trocaTexto('h1', 'Jogo Do Número Secreto');
 trocaTexto('p', 'Escolha um número entre 1 e 10');
 
-console.log(trocaTexto())
-
 function verificarChute() { // essa função sem (params) 
-
+    // tenhoi que refazer essa função, não funcionou ..
     let chuteDigitado = document.querySelector('input').value;
+
+    let palavraTentativa = tentativas > 1 ? 'Tentativas' : 'Tentativa';
 
     if (chuteDigitado == numeroSecreto) {
         trocaTexto('h1', 'Acertou !');
-        trocaTexto('p', 'Você descobriu o número secreto.');
+        trocaTexto('p', `Você descobriu o número secreto com ${tentativas} ${palavraTentativa}.`);
     } else {
         if (chuteDigitado > numeroSecreto) {
-            trocaTexto('h1', 'O Número é Menor!');
-            trocaTexto('p', '');
+            trocaTexto('h1', 'Errou!');
+            trocaTexto('p', 'O Número é Menor!');
         } else {
-            trocaTexto('h1', 'O Número é maior!');
-            trocaTexto('p', '');
+            trocaTexto('h1', 'Errou!');
+            trocaTexto('p', 'O Número é maior!');
         }
+        tentativas++;
     }
-
-}
+};
 
 function gerarNumeroAleatorio() {
     return parseInt(Math.random() * 10 + 1);
