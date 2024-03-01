@@ -13,7 +13,7 @@ trocaTexto('p', 'Escolha um número entre 1 e 10');
 
 console.log(trocaTexto())
 
-function verificarChute() { // essa função sem (params)
+function verificarChute() { // essa função sem (params) 
 
     let chuteDigitado = document.querySelector('input').value;
 
