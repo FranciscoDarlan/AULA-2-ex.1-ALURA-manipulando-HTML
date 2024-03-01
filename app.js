@@ -30,6 +30,7 @@ function verificarChute() { // essa função sem (params)
             trocaTexto('p', 'O Número é maior!');
         }
         tentativas++;
+        limparInputDigitado();
     }
 };
 
@@ -37,3 +38,8 @@ function gerarNumeroAleatorio() {
     return parseInt(Math.random() * 10 + 1);
 } // essa função tem retorno queremos que ela nos diga algo ..
 
+
+function limparInputDigitado(){// essa função vai ser responsavel por limpar o campo do valor digitado no input.
+    chuteDigitado = document.querySelector('input');
+    chuteDigitado.value = '';
+}
